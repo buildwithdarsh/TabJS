@@ -138,7 +138,7 @@ export class Transport {
         fn(env);
       } catch (err) {
         // eslint-disable-next-line no-console
-        console.error('[tab.js] transport listener threw:', err);
+        console.error('[TabJS] transport listener threw:', err);
       }
     }
   }

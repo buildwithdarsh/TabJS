@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>tab.js — cross-tab communication for the modern web</title>
+<title>TabJS — cross-tab communication for the modern web</title>
 <meta name="description" content="Cross-tab communication, shared state, presence, leader election, locks, duplicate detection, and request/response — over BroadcastChannel with a localStorage fallback. Typed, framework-agnostic, zero dependencies." />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <style>
@@ -220,12 +220,12 @@
       <span class="badge">TypeScript-first</span>
       <span class="badge">Zero dependencies</span>
     </div>
-    <h1>tab<span class="dot">.</span>js</h1>
+    <h1>Tab<span class="dot">JS</span></h1>
     <p class="tagline">Cross-tab communication for the modern web — shared state, presence, leader election, locks, duplicate detection, and request/response between every open tab of your app.</p>
     <p class="typewriter"><span id="typewriter"></span><span class="caret"></span></p>
     <div class="cta">
       <a href="#playground" class="btn primary">Try the playground →</a>
-      <a href="https://github.com" class="btn">GitHub</a>
+      <a href="https://github.com/buildwithdarsh/TabJS" class="btn">GitHub</a>
       <button class="btn" id="open-duplicate">Duplicate this tab</button>
     </div>
 
@@ -334,7 +334,7 @@
 <section class="features">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Why tab.js</span>
+      <span class="eyebrow">Why TabJS</span>
       <h2>Everything you need for multi-tab UX</h2>
       <p>BroadcastChannel where supported, localStorage as a fallback, and a clean typed API on top — so your app behaves predictably no matter how users open it.</p>
     </div>
@@ -400,7 +400,7 @@ tabs.on(<span class="s">'duplicate'</span>, alertUser);</pre>
         <div class="icon">📦</div>
         <h3>Tiny & framework-agnostic</h3>
         <p>~3 KB gzipped, zero dependencies, ESM + UMD + types. Works with React, Vue, Svelte, vanilla — any framework, any year.</p>
-        <pre><span class="k">import</span> { getTabs } <span class="k">from</span> <span class="s">'@buildwithdarsh/tab.js'</span>;</pre>
+        <pre><span class="k">import</span> { getTabs } <span class="k">from</span> <span class="s">'@buildwithdarsh/tabjs'</span>;</pre>
       </div>
     </div>
   </div>
@@ -418,13 +418,13 @@ tabs.on(<span class="s">'duplicate'</span>, alertUser);</pre>
         <button class="install-tab" data-pm="yarn">yarn</button>
         <button class="install-tab" data-pm="cdn">cdn</button>
       </div>
-      <pre id="install-cmd"><span class="c">$</span> npm install <span class="k">@buildwithdarsh/tab.js</span></pre>
+      <pre id="install-cmd"><span class="c">$</span> npm install <span class="k">@buildwithdarsh/tabjs</span></pre>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>Built with care. MIT licensed. © 2026 · <a href="https://github.com">github</a> · <a href="https://www.npmjs.com/package/@buildwithdarsh/tab.js">npm</a></p>
+  <p>Built with care. MIT licensed. © 2026 · <a href="https://github.com">github</a> · <a href="https://www.npmjs.com/package/@buildwithdarsh/tabjs">npm</a></p>
 </footer>
 
 <!-- ========================================================================= -->
@@ -655,10 +655,10 @@ tabs.on(<span class="s">'duplicate'</span>, alertUser);</pre>
 
   // ---- Install tabs -----------------------------------------------------
   const cmds = {
-    npm: '<span class="c">$</span> npm install <span class="k">@buildwithdarsh/tab.js</span>',
-    pnpm: '<span class="c">$</span> pnpm add <span class="k">@buildwithdarsh/tab.js</span>',
-    yarn: '<span class="c">$</span> yarn add <span class="k">@buildwithdarsh/tab.js</span>',
-    cdn: '<span class="c">&lt;script src=</span>"https://unpkg.com/@buildwithdarsh/tab.js"<span class="c">&gt;&lt;/script&gt;</span>',
+    npm: '<span class="c">$</span> npm install <span class="k">@buildwithdarsh/tabjs</span>',
+    pnpm: '<span class="c">$</span> pnpm add <span class="k">@buildwithdarsh/tabjs</span>',
+    yarn: '<span class="c">$</span> yarn add <span class="k">@buildwithdarsh/tabjs</span>',
+    cdn: '<span class="c">&lt;script src=</span>"https://unpkg.com/@buildwithdarsh/tabjs"<span class="c">&gt;&lt;/script&gt;</span>',
   };
   document.querySelectorAll('.install-tab').forEach((tab) => {
     tab.addEventListener('click', () => {

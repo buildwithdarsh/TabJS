@@ -1,8 +1,8 @@
-# tab.js
+# TabJS
 
 Cross-tab communication for the modern web — shared state, presence, leader election, locks, duplicate detection, and request/response between every open tab of your app.
 
-[![npm](https://img.shields.io/badge/npm-v1.0.0-bf5af2)](https://www.npmjs.com/package/@buildwithdarsh/tab.js)
+[![npm](https://img.shields.io/badge/npm-v1.0.0-bf5af2)](https://www.npmjs.com/package/@buildwithdarsh/tabjs)
 [![bundle](https://img.shields.io/badge/gzipped-~3KB-2997ff)](#)
 [![license](https://img.shields.io/badge/license-MIT-30d158)](LICENSE)
 [![types](https://img.shields.io/badge/TypeScript-first-2997ff)](#)
@@ -12,23 +12,23 @@ Built on `BroadcastChannel` where available, with a `localStorage`-event fallbac
 ## Install
 
 ```bash
-npm install @buildwithdarsh/tab.js
+npm install @buildwithdarsh/tabjs
 # or
-pnpm add @buildwithdarsh/tab.js
+pnpm add @buildwithdarsh/tabjs
 # or
-yarn add @buildwithdarsh/tab.js
+yarn add @buildwithdarsh/tabjs
 ```
 
 Or via CDN:
 
 ```html
-<script src="https://unpkg.com/@buildwithdarsh/tab.js"></script>
+<script src="https://unpkg.com/@buildwithdarsh/tabjs"></script>
 ```
 
 ## Quick start
 
 ```ts
-import { getTabs } from '@buildwithdarsh/tab.js';
+import { getTabs } from '@buildwithdarsh/tabjs';
 
 type AppState = { theme: 'dark' | 'light'; counter: number };
 
@@ -177,7 +177,7 @@ await tabs.lock('queue', work, {
 
 ### Duplicate detection
 
-When a user picks "Duplicate tab" in Chrome/Firefox, the new tab inherits the original's `sessionStorage`. tab.js stamps each tab with a `lineage` id in `sessionStorage` on first run — if a heartbeat arrives from another live tab with the same lineage, this tab is a duplicate.
+When a user picks "Duplicate tab" in Chrome/Firefox, the new tab inherits the original's `sessionStorage`. TabJS stamps each tab with a `lineage` id in `sessionStorage` on first run — if a heartbeat arrives from another live tab with the same lineage, this tab is a duplicate.
 
 ```ts
 if (tabs.isDuplicate) showWarning();
@@ -238,7 +238,7 @@ new TabManager<AppState>({
 `getTabs()` returns a lazy singleton — convenient for app code. For tests or iframes, instantiate directly:
 
 ```ts
-import { TabManager, getTabs, resetTabsSingleton } from '@buildwithdarsh/tab.js';
+import { TabManager, getTabs, resetTabsSingleton } from '@buildwithdarsh/tabjs';
 
 const a = getTabs<MyState>();          // app-wide
 const b = new TabManager<MyState>();   // independent instance
@@ -249,7 +249,7 @@ resetTabsSingleton();                  // tests
 
 ```tsx
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import { getTabs } from '@buildwithdarsh/tab.js';
+import { getTabs } from '@buildwithdarsh/tabjs';
 
 const tabs = getTabs<{ theme: 'dark' | 'light' }>();
 

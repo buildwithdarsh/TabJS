@@ -230,7 +230,7 @@ export class TabManager<TState = unknown, TPayload = unknown> {
     options: RequestOptions = {},
   ): Promise<R> {
     const target = targetId ?? this.leaderId ?? null;
-    if (!target) return Promise.reject(new Error('[tab.js] no target tab for request'));
+    if (!target) return Promise.reject(new Error('[TabJS] no target tab for request'));
     const timeoutMs = options.timeout ?? 5000;
 
     return new Promise<R>((resolve, reject) => {
@@ -238,7 +238,7 @@ export class TabManager<TState = unknown, TPayload = unknown> {
       const timer = this.win.setTimeout(() => {
         if (this.pending.has(reqId)) {
           this.pending.delete(reqId);
-          reject(new Error(`[tab.js] request "${channel}" timed out after ${timeoutMs}ms`));
+          reject(new Error(`[TabJS] request "${channel}" timed out after ${timeoutMs}ms`));
         }
       }, timeoutMs);
       this.pending.set(reqId, {
@@ -339,7 +339,7 @@ export class TabManager<TState = unknown, TPayload = unknown> {
     this.win.removeEventListener?.('pagehide', this.onBeforeUnload);
     for (const [, pending] of this.pending) {
       if (pending.timer) this.win.clearTimeout(pending.timer);
-      pending.reject(new Error('[tab.js] TabManager destroyed before request resolved'));
+      pending.reject(new Error('[TabJS] TabManager destroyed before request resolved'));
     }
     this.pending.clear();
     for (const [key, held] of this.heldLocks) {
@@ -606,7 +606,7 @@ export class TabManager<TState = unknown, TPayload = unknown> {
         listener(event);
       } catch (err) {
         // eslint-disable-next-line no-console
-        console.error('[tab.js] listener threw:', err);
+        console.error('[TabJS] listener threw:', err);
       }
     }
   }
@@ -660,7 +660,7 @@ export class TabManager<TState = unknown, TPayload = unknown> {
 
   private async acquireLock(name: string, options: LockOptions): Promise<string> {
     if (!hasStorage(this.win)) {
-      throw new Error('[tab.js] lock() requires localStorage');
+      throw new Error('[TabJS] lock() requires localStorage');
     }
     const timeoutMs = options.timeout ?? 30_000;
     const pollMs = options.pollInterval ?? 50;
@@ -690,7 +690,7 @@ export class TabManager<TState = unknown, TPayload = unknown> {
         }
       }
       if (now() >= deadline) {
-        throw new Error(`[tab.js] lock "${name}" timed out after ${timeoutMs}ms`);
+        throw new Error(`[TabJS] lock "${name}" timed out after ${timeoutMs}ms`);
       }
       await new Promise<void>((resolve) => this.win.setTimeout(resolve, pollMs));
     }

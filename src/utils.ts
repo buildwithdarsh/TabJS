@@ -28,7 +28,7 @@ export function resolveWindow(maybeWin?: Window): Window {
   if (maybeWin) return maybeWin;
   if (typeof window !== 'undefined') return window;
   throw new Error(
-    '[tab.js] TabManager requires a window. Pass `options.window` when running outside the browser.',
+    '[TabJS] TabManager requires a window. Pass `options.window` when running outside the browser.',
   );
 }
 

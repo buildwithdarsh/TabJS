@@ -1,5 +1,5 @@
 {
-  "name": "@buildwithdarsh/tab.js",
+  "name": "@buildwithdarsh/tabjs",
   "version": "1.0.0",
   "description": "Cross-tab communication, shared state, presence, leader election, locks, duplicate detection, and request/response — over BroadcastChannel with a localStorage fallback. Typed, framework-agnostic, zero dependencies.",
   "main": "dist/tab.umd.js",
