@@ -1,0 +1,66 @@
+{
+  "name": "@buildwithdarsh/tab.js",
+  "version": "1.0.0",
+  "description": "Cross-tab communication, shared state, presence, leader election, locks, duplicate detection, and request/response — over BroadcastChannel with a localStorage fallback. Typed, framework-agnostic, zero dependencies.",
+  "main": "dist/tab.umd.js",
+  "module": "dist/tab.esm.js",
+  "types": "dist/tab.d.ts",
+  "unpkg": "dist/tab.umd.js",
+  "jsdelivr": "dist/tab.umd.js",
+  "exports": {
+    ".": {
+      "types": "./dist/tab.d.ts",
+      "import": "./dist/tab.esm.js",
+      "require": "./dist/tab.umd.js"
+    }
+  },
+  "files": [
+    "dist/tab.umd.js",
+    "dist/tab.umd.js.map",
+    "dist/tab.esm.js",
+    "dist/tab.esm.js.map",
+    "dist/tab.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rollup -c && rm -rf example/dist && cp -r dist example/dist",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dev": "rollup -c -w",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "keywords": [
+    "tabs",
+    "cross-tab",
+    "broadcastchannel",
+    "localstorage",
+    "shared-state",
+    "leader-election",
+    "presence",
+    "lock",
+    "mutex",
+    "duplicate-tab",
+    "singleton-tab",
+    "tab-sync",
+    "typescript"
+  ],
+  "author": "Darsh Gupta",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "devDependencies": {
+    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "happy-dom": "^15.0.0",
+    "rollup": "^4.34.8",
+    "rollup-plugin-dts": "^6.1.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.0"
+  }
+}
